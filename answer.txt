@@ -1,0 +1,19 @@
+1. TowTruck.all
+2. Vehicle.find_by(id: 3)
+3. Vehicle.find_by(vin: "D0985DF1593A350A43")
+4. Vehicle.order(acquired_at: :desc)
+5. Vehicle.where(color: "silver").order(make: :asc)
+6. Vehicle.where(color: "red", make: "Honda", category: "car")
+7. Vehicle.where(category: "motorcycle").count
+8. Vehicle.where(released_at: nil).count
+9. TowTruck.where("mileage > ?", 200000)
+10.TowTruck.where("last_service_at < ?", Time.now-8.month)
+11.Vehicle.average(:fee).to_i
+12.Vehicle.where.not(fee: nil).order(fee: :desc).limit(3).pluck(:fee)
+13.Vehicle.where(is_paid: false)
+14.Vehicle.where.not(released_at: nil).order(released_at: :desc)
+15.Vehicle.where.not(notes: "")
+16.Vehicle.where("year<?",2000).pluck(:vin)
+17.Vehicle.where(color: "silver").order(year: :desc).pluck(:make, :model, :year)
+18.Vehicle.sum(:fee).to_i
+19.
